@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel='stylesheet'>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/main.js" defer></script>
+    
 </head>
-<body>
+<body >
     <div class="app home">
-        <header>
+        <header id="header">
             <nav class="nav_header">
                 <a href="" class="container-logoA">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48" class="logo-academlo">
@@ -27,6 +28,7 @@
                 </a>
                 
                 <ul class="navbar_menu" id="navbarMenu">
+                    <div class="icon-close"><i class="bx handleIconNavbar bx-x" id="close-menubar"></i></i></div>
                     <li>
                         <a class="link__active" href="#home">Home</a>
                     </li>
@@ -44,7 +46,6 @@
                 
             </nav>
         </header>
-    <div class="app home">    
         <div class="container">
             <section class="home_container">
                 <div class="home_header">
@@ -65,25 +66,25 @@
             </section>
             <section class="container_cards">
                 <div class="content_filter">
-                    <div class="filter mixitup-control-active filter__active" data-filter="all">
+                    <button class="filter  filter__active" data-filter="all">
                         <p>Show all</p>
                         <p>Show all products</p>
-                    </div>
+                    </button>
 
-                    <div class="filter" data-filter=".shirt">
+                    <button class="filter" data-filter=".shirt">
                         <p>Shirt</p>
                         <p>7 products</p>
-                    </div>
+                    </button>
 
-                    <div class="filter" data-filter=".hoddie">
+                    <button class="filter" data-filter=".hoddie">
                         <p>Hoddie</p>
                         <p>6 products</p>
-                    </div>
+                    </button>
 
-                    <div class="filter" data-filter=".sweater">
+                    <button class="filter" data-filter=".sweater">
                         <p>Sweater</p>
                         <p>5 products</p>
-                    </div>
+                    </button>
                 </div>
                 <div class="container-products">
                     <div class="products"></div>
@@ -157,6 +158,7 @@
             </section>
             <p><b>Exequiel Mainero, kekelom88@gmail.com y <a href="#">repositorio</a> de la persona que lo realizo</b></p>
         </footer>
-    </div>  
+    </div>
+    
 </body>
 </html>

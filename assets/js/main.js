@@ -23,21 +23,21 @@ function printProducts(db) {
         
         
         html += `
-        <div class="product">
+        <div class="product" ${product.category}>
             
             <div class="product_img">
                 <img src="${product.image}" alt="imagen" />
             </div>
             
             <div class="product_info">
-            <h4>${product.name} <span><b>Stock</b>: ${product.quantity}<span></h4>
-               <h5>
-                   $${product.price}
+                <h5>
+                   $${product.price} <span><b>Stock:</b>${product.quantity}</span>
                    ${product.quantity 
                     ? `<i class='bx bx-plus plus' id="${product.id}"></i>`
                    :"<span class='sold-out'>Sold out</span> "
                    }
                </h5>
+               <h4>${product.name} </h4>
             </div>
 
         </div>
@@ -83,7 +83,7 @@ function  addCartFrom(db) {
             
 
            const productFind = db.products.find ( (product) => product.id === id);
-           console.log(productFind)
+           
 
         
             if (db.cart[productFind.id]) {
@@ -121,7 +121,7 @@ function printCartProduct (db) {
         
        const {quantity,price,name,image,id,amount } = db.cart[product];
     
-       console.log({quantity,price,name,image,id,amount });
+       
 
        html += `
                 <div class="cart_product" >
@@ -255,6 +255,26 @@ function totalAmountProducts (db){
     amountProducts.textContent = amount;
 };
 
+function  handleNavMenu() {
+    const iconNavBar= document.querySelector(".bxs-dashboard");
+    const navHomeHTML= document.querySelector(".navbar_menu");
+    
+    iconNavBar.addEventListener("click" , function() {
+        navHomeHTML.classList.toggle("nav-bar_show")
+    
+    });
+    
+    const closeHTML=document.querySelector("#close-menubar");
+    
+    closeHTML.addEventListener("click" , function () {
+        navHomeHTML.classList.toggle("nav-bar_show")
+        
+    });
+     
+};
+
+
+
 
 async function main() {
     const db = { 
@@ -272,24 +292,53 @@ async function main() {
     productAndTotalCart(db);
     buyProductCar (db);
     totalAmountProducts (db);
-
-    /*const iconNavBar= document.querySelector(".handleIconNavbar");
-    const navHomeHTML= document.querySelector(".navbar_menu");
+    handleNavMenu();
     
-    iconNavBar.addEventListener("click" , function() {
-        navHomeHTML.classList.toggle("nav-bar_show")
 
-    });
+
     
-    const closeHTML=document.querySelector("#close-cart1");
+        /*const filterSHTML = document.querySelectorAll("content_filter .filter ");
+    
+        filterSHTML.forEach((filter) => {
+            filter.addEventListener("click", (e) => {
+                filterSHTML.forEach((filter) =>
+                    filter.classList.remove("filter__active")
+                );
+    
+                e.target.classList.add(".filter__active");
+            });
+        });
+    
+        mixitup(".products", {
+            selectors: {
+                target: ".product",
+            },
+            animation: {
+                duration: 300,
+            },
+        });*/
 
-    closeHTML.addEventListener("click" , function () {
-        navHomeHTML.classList.toggle("nav-bar_show")
+        const icondark = document.querySelector(".bx-moon");
+        const darkModeHTML = document.querySelector("body");
+
+        icondark.addEventListener("click" , function() {
+        darkModeHTML.classList.toggle("darkmode")
         
-    });*/
-    
+        });
+        
+        
+        const headerHTML = document.getElementById("header");
+
+        window.addEventListener("scroll", function() {
+          if (window.pageYOffset > 100) {
+            headerHTML.classList.add("header_show");
+          } else {
+            headerHTML.classList.remove("header_show");
+          }
+        });
 };
-    
+
+
 
 
 main();
