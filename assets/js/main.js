@@ -87,14 +87,14 @@ function  addCartFrom(db) {
 
         
             if (db.cart[productFind.id]) {
-                if (productFind.quantity === db.card[productFind.id].amount)
+                if (productFind.quantity === db.cart[productFind.id].amount)
                     return alert("no tenemos mas de este producto en stock")
     
                     db.cart[productFind.id].amount++;
                 
             } else {
-                    db.cart[productFind.id] = {...productFind , amount:1};
-                
+                    db.cart[productFind.id] = {...productFind , amount: 1};
+                  
             }
             
             window.localStorage.setItem("cart" , JSON.stringify(db.cart));
@@ -239,6 +239,7 @@ function buyProductCar (db){
         productAndTotalCart(db)
         printCartProduct(db);
         printProducts(db);
+        totalAmountProducts (db);
         
     });
 
